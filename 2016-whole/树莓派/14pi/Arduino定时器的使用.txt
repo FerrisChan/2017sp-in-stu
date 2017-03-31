@@ -1,0 +1,152 @@
+Arduino定时器的使用
+
+看了这么久，第一次发帖，做点贡献。
+最近了解了一下Arduino 的中断，除了外部中外，还有定时中断，前面已经有大神介绍过中断的概念，这里就不详细介绍了。
+下面的程序是用定时器中断让13引脚 led灯每500ms变化一次。（使用的库在帖子底端）
+[C] 纯文本查看 复制代码
+?
+01
+02
+03
+04
+05
+06
+07
+08
+09
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+// led灯接UNO的13管脚
+#include <MsTimer2.h>               //定时器库的 头文件
+ 
+void flash()                        //中断处理函数，改变灯的状态
+{                        
+  static boolean output = HIGH;
+  digitalWrite(13, output);
+  output = !output;
+}
+ 
+void setup() 
+{
+  pinMode(13, OUTPUT);
+ 
+  MsTimer2::set(500, flash);        // 中断设置函数，每 500ms 进入一次中断
+  MsTimer2::start();                //开始计时
+}
+ 
+void loop()
+{
+ 
+}
+
+再提供一种方法，利用  mills（）同样函数可以实现中断的功能。mills()函数功能是获取系统运行的时间长度，单位ms。最大为9小时22分，如果超出时间将从0开始。函数的返回值为unsigned long型。
+下面程序的功能让led灯亮灭各500ms ：
+[C] 纯文本查看 复制代码
+?
+01
+02
+03
+04
+05
+06
+07
+08
+09
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+unsigned long ledOn=500,ledOff=500; //定义led灯变化的时间长度，每500ms变化一次
+int ledStatus;                      //定义LED灯的状态，HIGH or LOWm 
+void setup()
+{
+    pinMode(13,OUTPUT);
+    digitalWrite(13,HIGH);
+    ledStatus=HIGH;
+}
+void loop()
+{
+    unsigned long nowtime=millis(); //获取当前的系统运行时间长度
+    if(ledStatus==HIGH)             //如果当前lled灯状态为高电平，则执行该程序
+    {
+      if(nowtime>ledOn)             //检测系统运行时间长度是否到500ms
+      {
+        ledOn=nowtime;              //记录当前时间长度，第一次为500ms,赋值给ledOn
+        ledOff=nowtime+500;         //计算出下一次led灯变化的时刻，第一次运行程序时应该在1000ms时关灯
+        digitalWrite(13,LOW);       //关掉led灯
+        ledStatus=LOW;              //记录当前led灯状态，下一次使用     
+      } 
+    }
+ 
+  else{       
+         if(nowtime>ledOff)
+         {   
+          ledOff=nowtime;
+          ledOn=nowtime+500;
+          digitalWrite(13,HIGH);
+          ledStatus=HIGH;
+         }
+      }
+}
+
+如果需要，可以控制led灯在某一时间段或某一时刻亮灭。
+
+PS：使用mills（）函数的好处在于占用的整个程序运行时间短，如果用用延时函数，在延时的时间内，CPU不能干别的事儿。
+
+
+
+
+arduino-mega2560上要用FlexiTimer2.h，否则编译能通过，但不会产生定时中断
+#include <FlexiTimer2.h >
+
+void flash() {
+  static boolean output = HIGH;
+
+  digitalWrite(13, output);
+output = !output;
+}
+
+void setup() {
+  pinMode(13, OUTPUT); 
+  FlexiTimer2::set(1000, flash); 
+  FlexiTimer2::start();
+}
+
+void loop() {
+
+}
+
+
+
+
+FlexiTimer2.zip
