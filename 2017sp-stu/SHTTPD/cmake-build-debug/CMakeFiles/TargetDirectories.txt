@@ -1,0 +1,3 @@
+/media/ferris/资源/TODO/github/study-in-stu/2017sp-stu/SHTTPD/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/media/ferris/资源/TODO/github/study-in-stu/2017sp-stu/SHTTPD/cmake-build-debug/CMakeFiles/edit_cache.dir
+/media/ferris/资源/TODO/github/study-in-stu/2017sp-stu/SHTTPD/cmake-build-debug/CMakeFiles/untitled1.dir
