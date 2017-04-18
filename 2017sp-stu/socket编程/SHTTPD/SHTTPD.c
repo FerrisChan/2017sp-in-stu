@@ -1,13 +1,9 @@
-#include <stdio.h>
-#include <sys/socket.h>
-#include <netinet/in.h>
-#include <string.h>
-#include <signal.h>
+#include "SHTTP.h"
 
 #define PORT 8080 // 监听端口
 #define MAX_CLIENT 4
 static void sig_int(int num) {
-    /* 停止线程 */
+    /* ctrl +c 停止进程 */
     return;
 }
 
@@ -60,5 +56,7 @@ int do_listen(){
 int main(int argc, char *argv[])
 {   signal(SIGINT, sig_int);
     int s = do_listen();
+//  Worker_ScheduleRun(s);
     return 0;
+
 }

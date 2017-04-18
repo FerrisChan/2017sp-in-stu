@@ -48,10 +48,10 @@ RM = /home/ferris/software/clion-2017.1.1/bin/cmake/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /media/ferris/资源/TODO/github/study-in-stu/2017sp-stu/SHTTPD
+CMAKE_SOURCE_DIR = /media/ferris/资源/TODO/github/study-in-stu/2017sp-stu/socket编程/SHTTPD
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /media/ferris/资源/TODO/github/study-in-stu/2017sp-stu/SHTTPD/cmake-build-debug
+CMAKE_BINARY_DIR = /media/ferris/资源/TODO/github/study-in-stu/2017sp-stu/socket编程/SHTTPD/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /media/ferris/资源/TODO/github/study-in-stu/2017sp-stu/SHTTPD/cmake-build-debug/CMakeFiles /media/ferris/资源/TODO/github/study-in-stu/2017sp-stu/SHTTPD/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /media/ferris/资源/TODO/github/study-in-stu/2017sp-stu/socket编程/SHTTPD/cmake-build-debug/CMakeFiles /media/ferris/资源/TODO/github/study-in-stu/2017sp-stu/socket编程/SHTTPD/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /media/ferris/资源/TODO/github/study-in-stu/2017sp-stu/SHTTPD/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /media/ferris/资源/TODO/github/study-in-stu/2017sp-stu/socket编程/SHTTPD/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -111,44 +111,98 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named untitled1
+# Target rules for targets named SHTTPD
 
 # Build rule for target.
-untitled1: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 untitled1
-.PHONY : untitled1
+SHTTPD: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 SHTTPD
+.PHONY : SHTTPD
 
 # fast build rule for target.
-untitled1/fast:
-	$(MAKE) -f CMakeFiles/untitled1.dir/build.make CMakeFiles/untitled1.dir/build
-.PHONY : untitled1/fast
+SHTTPD/fast:
+	$(MAKE) -f CMakeFiles/SHTTPD.dir/build.make CMakeFiles/SHTTPD.dir/build
+.PHONY : SHTTPD/fast
 
-main.o: main.c.o
+SHTTPD.o: SHTTPD.c.o
 
-.PHONY : main.o
+.PHONY : SHTTPD.o
 
 # target to build an object file
-main.c.o:
-	$(MAKE) -f CMakeFiles/untitled1.dir/build.make CMakeFiles/untitled1.dir/main.c.o
-.PHONY : main.c.o
+SHTTPD.c.o:
+	$(MAKE) -f CMakeFiles/SHTTPD.dir/build.make CMakeFiles/SHTTPD.dir/SHTTPD.c.o
+.PHONY : SHTTPD.c.o
 
-main.i: main.c.i
+SHTTPD.i: SHTTPD.c.i
 
-.PHONY : main.i
+.PHONY : SHTTPD.i
 
 # target to preprocess a source file
-main.c.i:
-	$(MAKE) -f CMakeFiles/untitled1.dir/build.make CMakeFiles/untitled1.dir/main.c.i
-.PHONY : main.c.i
+SHTTPD.c.i:
+	$(MAKE) -f CMakeFiles/SHTTPD.dir/build.make CMakeFiles/SHTTPD.dir/SHTTPD.c.i
+.PHONY : SHTTPD.c.i
 
-main.s: main.c.s
+SHTTPD.s: SHTTPD.c.s
 
-.PHONY : main.s
+.PHONY : SHTTPD.s
 
 # target to generate assembly for a file
-main.c.s:
-	$(MAKE) -f CMakeFiles/untitled1.dir/build.make CMakeFiles/untitled1.dir/main.c.s
-.PHONY : main.c.s
+SHTTPD.c.s:
+	$(MAKE) -f CMakeFiles/SHTTPD.dir/build.make CMakeFiles/SHTTPD.dir/SHTTPD.c.s
+.PHONY : SHTTPD.c.s
+
+test.o: test.c.o
+
+.PHONY : test.o
+
+# target to build an object file
+test.c.o:
+	$(MAKE) -f CMakeFiles/SHTTPD.dir/build.make CMakeFiles/SHTTPD.dir/test.c.o
+.PHONY : test.c.o
+
+test.i: test.c.i
+
+.PHONY : test.i
+
+# target to preprocess a source file
+test.c.i:
+	$(MAKE) -f CMakeFiles/SHTTPD.dir/build.make CMakeFiles/SHTTPD.dir/test.c.i
+.PHONY : test.c.i
+
+test.s: test.c.s
+
+.PHONY : test.s
+
+# target to generate assembly for a file
+test.c.s:
+	$(MAKE) -f CMakeFiles/SHTTPD.dir/build.make CMakeFiles/SHTTPD.dir/test.c.s
+.PHONY : test.c.s
+
+thread_set.o: thread_set.c.o
+
+.PHONY : thread_set.o
+
+# target to build an object file
+thread_set.c.o:
+	$(MAKE) -f CMakeFiles/SHTTPD.dir/build.make CMakeFiles/SHTTPD.dir/thread_set.c.o
+.PHONY : thread_set.c.o
+
+thread_set.i: thread_set.c.i
+
+.PHONY : thread_set.i
+
+# target to preprocess a source file
+thread_set.c.i:
+	$(MAKE) -f CMakeFiles/SHTTPD.dir/build.make CMakeFiles/SHTTPD.dir/thread_set.c.i
+.PHONY : thread_set.c.i
+
+thread_set.s: thread_set.c.s
+
+.PHONY : thread_set.s
+
+# target to generate assembly for a file
+thread_set.c.s:
+	$(MAKE) -f CMakeFiles/SHTTPD.dir/build.make CMakeFiles/SHTTPD.dir/thread_set.c.s
+.PHONY : thread_set.c.s
 
 # Help Target
 help:
@@ -158,10 +212,16 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... untitled1"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... SHTTPD"
+	@echo "... SHTTPD.o"
+	@echo "... SHTTPD.i"
+	@echo "... SHTTPD.s"
+	@echo "... test.o"
+	@echo "... test.i"
+	@echo "... test.s"
+	@echo "... thread_set.o"
+	@echo "... thread_set.i"
+	@echo "... thread_set.s"
 .PHONY : help
 
 
