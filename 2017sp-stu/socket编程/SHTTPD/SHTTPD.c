@@ -1,9 +1,17 @@
+//
+// Created by ferris on 17-4-15.
+//
+
+/*
+*   主函数
+*/
+
 #include "SHTTP.h"
 
-#define PORT 8080 // 监听端口
-#define MAX_CLIENT 4
+
 static void sig_int(int num) {
     /* ctrl +c 停止进程 */
+    Worker_ScheduleStop();
     return;
 }
 
@@ -11,7 +19,6 @@ static void sig_pipe(int num) {
     /*终止程序*/
     return;
 }
-
 int do_listen(){
     /*socket init初始化*/
 
@@ -46,7 +53,7 @@ int do_listen(){
     }
 
     /* server listen ,支持连接client为最大值两倍 */
-    err = listen(ss,MAX_CLIENT*2 );
+    err = listen(ss,MaxClient*2 );
     if (err < 0){
         printf("listen error \n");
         return -3;
@@ -56,7 +63,8 @@ int do_listen(){
 int main(int argc, char *argv[])
 {   signal(SIGINT, sig_int);
     int s = do_listen();
-//  Worker_ScheduleRun(s);
+    Worker_ScheduleRun(s);
     return 0;
+
 
 }
