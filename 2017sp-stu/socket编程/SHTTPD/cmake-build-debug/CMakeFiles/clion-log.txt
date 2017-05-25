@@ -1,4 +1,0 @@
-/home/ferris/software/clion-2017.1.1/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /media/ferris/资源/TODO/github/study-in-stu/2017sp-stu/socket编程/SHTTPD
--- Configuring done
--- Generating done
--- Build files have been written to: /media/ferris/资源/TODO/github/study-in-stu/2017sp-stu/socket编程/SHTTPD/cmake-build-debug
